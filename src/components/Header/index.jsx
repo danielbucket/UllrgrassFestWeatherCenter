@@ -8,21 +8,21 @@ const token = import.meta.env.VITE_WEATHER_API_KEY;
 const coordinates = import.meta.env.VITE_GOLDEN_COORDS
 
 export default function Header() {
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState(weatherStub);
 
-  useEffect(() => {
-    fetch(`http://api.weatherapi.com/v1/current.json?key=${token}&q=${coordinates}&aqi=no`)
-    .then(res => res.json())
-    .then(data => {
-      console.log('poop: ', data)
-      setWeather(() => data)
-    })
-    .catch(err => console.error("Error: ", err))
-  }, []);
+  // useEffect(() => {
+  //   fetch(`http://api.weatherapi.com/v1/current.json?key=${token}&q=${coordinates}&aqi=no`)
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log('poop: ', data)
+  //     setWeather(() => data)
+  //   })
+  //   .catch(err => console.error("Error: ", err))
+  // }, []);
   
   return (
     <div className="header">
-      {/* <div className="logo">
+      <div className="logo">
         <img src={ullrLogo} alt="Ullr Logo" />
         <p className="year">
           <span>2</span>  
@@ -44,7 +44,7 @@ export default function Header() {
         </div>
         <p className='updated-at'>Updated at:<span>{weather.location.localtime}</span></p>
       </div>
-      </div> */}
+      </div>
     </div>
   );
 };
