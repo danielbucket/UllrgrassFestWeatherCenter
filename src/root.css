@@ -1,0 +1,39 @@
+:root {
+	--banana-candy-yellow: rgb(216 187 92);
+	--lalala: #1a1a1a;
+}
+
+*,
+*:before,
+*:after {
+	margin: 0;
+	box-sizing: inherit;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+button {
+	cursor: pointer;
+	display: inline-block;
+	border: none;
+	margin: 0;
+	text-decoration: none;
+	background: none;
+	text-align: center;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+html, body {
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+body {
+	background-color: #141518;
+}

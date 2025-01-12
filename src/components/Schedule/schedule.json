@@ -1,0 +1,188 @@
+{
+  "friday": {
+    "date": "Friday, 31st",
+    "schedule": [
+      {
+        "start_time": "3:45 PM",
+        "end_time": "4:45 PM",
+        "band": "Brandywine & the Mighty Fines",
+        "stage": "Ullr Saloon Stage"
+      },
+      {
+        "start_time": "4:45 PM",
+        "end_time": "5:00 PM",
+        "band": "Tonewood String Brand",
+        "stage": "Campfire Pickin'"
+      },
+      {
+        "start_time": "5:00 PM",
+        "end_time": "6:10 PM",
+        "band": "Pick $ Howl",
+        "stage": "Ullr Saloon Stage"
+      },
+      {
+        "start_time": "6:10 PM",
+        "end_time": "6:30 PM",
+        "band": "Tonewood String Brand",
+        "stage": "Campfire Pickin'"
+      },
+      {
+        "start_time": "6:30 PM",
+        "end_time": "7:45 PM",
+        "band": "Magoo",
+        "stage": "Ullr Saloon Stage"
+      },
+      {
+        "start_time": "7:45 PM",
+        "end_time": "8:15 PM",
+        "band": "Tonewood String Brand",
+        "stage": "Campfire Pickin'"
+      },
+      {
+        "start_time": "8:15 PM",
+        "end_time": "10:00 PM",
+        "band": "Chris Thompson & Grateful American Taxi",
+        "stage": "Ullr Saloon Stage",
+        "description": "Good ol' Grateful Dead set"
+      },
+      {
+        "start_time": "10:00 PM",
+        "end_time": "12:00 AM",
+        "band": "",
+        "stage": "The American Legion",
+        "description": "Open pick. Bring your instruments!"
+      }
+    ]
+  },
+  "saturday": {
+    "date": "Saturday, 1st",
+    "schedule": [
+      {
+        "start_time": "11:00 AM",
+        "end_time": "12:10 PM",
+        "band": "Rolling Harvest",
+        "stage": "Main Stage"
+      },
+      {
+        "start_time": "12:10 PM",
+        "end_time": "12:30 PM",
+        "band": "Broken Compass Bluegrass",
+        "stage": "Ullr Saloon Stage"
+      },
+      {
+        "start_time": "12:30 PM",
+        "end_time": "1:45 PM",
+        "band": "Easy Tiger",
+        "stage": "Main Stage"
+      },
+      {
+        "start_time": "1:45 PM",
+        "end_time": "2:15 PM",
+        "band": "Broken Compass Bluegrass",
+        "stage": "Ullr Saloon Stage"
+      },
+      {
+        "start_time": "2:15 PM",
+        "end_time": "4:15 PM",
+        "band": "Coral Creek",
+        "stage": "Main Stage",
+        "description": "w. Todd Scheaffer and Tim Carbone"
+      },
+      {
+        "start_time": "3:00 PM",
+        "end_time": "3:15 PM",
+        "band": "Costume Contest",
+        "stage": "",
+        "description": "In front of Main Stage"
+      },
+      {
+        "start_time": "4:15 PM",
+        "end_time": "5:30 PM",
+        "band": "Still House String Band",
+        "stage": "Ullr Saloon Stage"
+      },
+      {
+        "start_time": "5:30 PM",
+        "end_time": "6:00 PM",
+        "band": "Mighty Holler",
+        "stage": "Campfire Pickin'"
+      },
+      {
+        "start_time": "6:00 PM",
+        "end_time": "8:00 PM",
+        "band": "Great American Taxi",
+        "stage": "Ullr Saloon Stage"
+      },
+      {
+        "start_time": "8:00 PM",
+        "end_time": "8:30 PM",
+        "band": "Mighty Holler",
+        "stage": "Campfire Pickin'"
+      },
+      {
+        "start_time": "8:30 PM",
+        "end_time": "10:00 PM",
+        "band": "Todd Sheaffer",
+        "stage": "Ullr Saloon Stage",
+        "description": "w. The Ullrgrass Allstars"
+      },
+      {
+        "start_time": "10:00 PM",
+        "end_time": "12:00 AM",
+        "band": "",
+        "stage": "The American Legion",
+        "description": "Open pick. Bring your instruments!"
+      }
+    ]
+  },
+  "sunday": {
+    "date": "Sunday, 2nd",
+    "schedule": [
+      {
+        "start_time": "11:00 AM",
+        "end_time": "11:30 AM",
+        "band": "The Story of Ullr and The UllrEgg Hunt",
+        "stage": "Main Stage"
+      },
+      {
+        "start_time": "11:30 AM",
+        "end_time": "12:30 PM",
+        "band": "Timberline Troubadours",
+        "stage": "Main Stage"
+      },
+      {
+        "start_time": "12:00 PM(?)",
+        "end_time": "1:00 PM",
+        "band": "",
+        "stage": "",
+        "description": "Bluegrass and Bloody Mary Happy Hour"
+      },
+      {
+        "start_time": "12:30 PM",
+        "end_time": "1:00 PM",
+        "band": "Timber",
+        "stage": "Campfire Pickin'",
+        "description": "Picking hosted by Timber"
+      },
+      {
+        "start_time": "1:00 PM",
+        "end_time": "2:30 PM",
+        "band":"Broken Compass Bluegrass",
+        "stage": "Main Stage"
+      },
+      {
+        "start_time": "2:30 PM",
+        "end_time": "3:00 PM",
+        "band": "Timber",
+        "stage": "Campfire Pickin'",
+        "description": "Picking hosted by Timber"
+      },
+      {
+        "start_time": "3:00 PM",
+        "end_time": "4:30 PM",
+        "band": "Madeline Hawthorne",
+        "stage": "Main Stage"
+      }
+    ]
+  }
+}
