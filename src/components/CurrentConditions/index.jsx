@@ -1,5 +1,4 @@
-// import './style.css';
-import './mobile.style.css';
+import './style.css';
 import { useState, useEffect } from 'react';
 import Loading from '../Loading';
 
@@ -9,6 +8,8 @@ export default function CurrentConditions({ locationData }) {
   const url = `https://api.weather.gov/gridpoints/${forecastOfficeId}/${gridX},${gridY}/stations?limit=500`
 
   useEffect(() => {
+    if(!locationData.gridX || !locationData.gridY) return;
+    
     fetch(url)
     .then(res => res.json())
     .then(data => {
@@ -18,8 +19,19 @@ export default function CurrentConditions({ locationData }) {
       fetch(`https://api.weather.gov/stations/${stationIdentifier}/observations/latest`)
       .then(res => res.json())
       .then(data =>  {
-        // mutate the data to match the structure of the forecast data before setting it to state
-        setWeather(data.properties)
+        const weatherData = Object.assign({},
+          {
+            tempF: ((data.properties.temperature.value * 9/5) + 32),
+            icon: data.properties.icon,
+            description: data.properties.textDescription,
+            wind: {
+              speed: Math.round(data.properties.windSpeed.value),
+              chill: Math.round((data.properties.windChill.value * 9/5) + 32)
+            },
+            updatedAt: data.properties.timestamp.slice(0, 10)
+          }
+        )
+        setWeather(weatherData)
       })
       .catch((err) => console.log(err))
     })
@@ -27,29 +39,34 @@ export default function CurrentConditions({ locationData }) {
 
   }, [locationData]);
 
-// console.log(weather)
   return (
     <>
-      {
-        !weather
-        ? <Loading />
-        : (
-          <div className="current-weather-container">
-            <div className="inner-box-shadow">
-              <div className="current-temp">
-                {/* <p>{weather.temperature.value}°F</p> */}
-                <img src="" />
+      <div className="current-weather-container">
+        {
+          !weather
+          ? <Loading />
+          : (
+            <div className="current-weather-wrapper outer-box-shadow">
+              <div className="inner-box-shadow">
+
+                <div className="current-weather-content">
+                  <div className="current-temp">
+                    <p>{weather.tempF}°F</p>
+                    <img src={weather.icon} />
+                  </div>
+                    <p className="condition-text">{weather.description}</p>
+                  <div className='wind-details'>
+                    <p>Wind:<span>{weather.wind.speed}</span>mph</p>
+                    <p>Windchill:<span>{weather.wind.chill}</span>°F</p>
+                  </div>
+                  <p className='updated-at'>Updated at:<span>{weather.updatedAt}</span></p>
+                </div>
+                
               </div>
-              {/* <p className="condition-text">{weather.textDescription}</p> */}
-              <div className='wind-details'>
-                <p>Wind:<span>13</span>mph<span>NNW</span></p>
-                <p>Windchill: 89.5°F</p>
-              </div>
-              <p className='updated-at'>Updated at:<span>2024-01-41 13:34:45</span></p>
             </div>
-          </div>
-        )
-      }
+          )
+        }
+      </div>
     </>
   );
 };

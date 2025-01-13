@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Main from './components/Main';
 import Header from './components/Header';
-import HourlyForecast from './components/HourlyForecast';
+import ScheduleAndForecast from './components/ScheduleAndForecast';
 import Loading from './components/Loading';
+import CurrentConditions from './components/CurrentConditions';
 
 export default function App() {
   const [locationData, setLocationData] = useState({
@@ -44,14 +45,21 @@ export default function App() {
 
   return (
     <>
-      <div>
+      <div className="app-container">
         <Header locationData={locationData} />
-        {
-          locationData.gridX === undefined || locationData.gridY === undefined
-          ? <Loading />
-          : <HourlyForecast locationData={locationData} />
-        }
-        <Main />
+        <div className="page-content">
+          <CurrentConditions locationData={locationData} />
+          {
+            locationData.gridX === undefined || locationData.gridY === undefined
+            ? <Loading />
+            : (
+              <>
+                <ScheduleAndForecast locationData={locationData} />
+                <Main />
+              </>
+            )
+          }
+        </div>
       </div>
     </>
   )

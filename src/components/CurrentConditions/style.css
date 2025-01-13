@@ -1,74 +1,70 @@
-.header {
-  display: flex;
-  align-items: center;
-  padding: 0.75rem;
-  height: 24rem;
-
-  font-family: "Cormorant", serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+.current-weather-container {
+  width: 100%;
 }
 
-.logo {
-  flex-grow: 1;
+.current-weather-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
-}
-
-.logo p {
-  letter-spacing: 5rem;
-  color: var(--banana-candy-yellow);
-  font-size: 5rem;
-  font-weight: 600;
-}
-
-.current-weather {
-  border-radius: 4rem;
-  width: 28rem;
-  height: 20rem;
-  align-content: center;
-  box-shadow: 0ch 0ch 2ch 0ch rgb(177, 246, 255);
   font-size: 3rem;
-  background-color: ghostwhite;
   color: var(--lalala);
+  margin: 3rem;
+
+  font-family: "Julius Sans One", serif;
+  font-style: normal;
+  
+  scroll-snap-align: start;
+  scroll-margin-top: 4rem;
+  scroll-snap-stop: always;
 }
 
-.current-weather div:first-child {
-  box-shadow: inset 0ch 0ch 2ch 0ch var(--lalala);
+.outer-box-shadow {
   border-radius: 4rem;
-  height: 100%;
-  padding: 1.75rem;
+  box-shadow: 0ch 0ch 2ch 0ch rgb(177, 246, 255);
+  background-color: ghostwhite;
 }
 
-.current-weather p {
-  text-align: center;
+.inner-box-shadow {
+  box-shadow: inset 0ch 0ch 2ch 0ch var(--lalala);
+  border-radius: 2rem;
+  width: 100%;
+}
+
+.current-weather-content {
+  padding: 1rem 0;
+}
+
+.current-temp {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-temp p {
+  display: flex;
+  flex-direction: row;
+  font-size: 4rem;
   font-weight: 600;
 }
 
-.current-weather-details {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem;
+.condition-text {
+  font-size: 1.75rem;
+  padding-bottom: 1rem;
 }
 
-.current-weather-details p {
-  font-size: 2.75rem;
+.current-temp img {
+  width: 4rem;
+  border-radius: 30%;
 }
 
-.current-weather-details img {
-  position: fixed;
-  right: 1.25rem;
-  height: 5rem;
+.condition-text {
+  text-align: center;
 }
 
 .wind-details {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
   font-size: 1.75rem;
 }
 
@@ -78,4 +74,14 @@
 
 .wind-details p:nth-child(2) {
   margin-top: 0.5rem;
+}
+
+.updated-at {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.updated-at span {
+ margin-left: .25rem;
 }
