@@ -2,27 +2,51 @@
 import './mobile.style.css';
 import { useState, useEffect } from 'react';
 import ullrLogo from '../../assets/ullrlogohorizontalyellow.png';
-import weatherStub from '../../stubs/currentWeather.json'
+import stub from '../../stubs/currentWeather.json';
 
 const token = import.meta.env.VITE_WEATHER_API_KEY;
 const coordinates = import.meta.env.VITE_GOLDEN_COORDS
 
 export default function Header() {
-  const [weather, setWeather] = useState(weatherStub);
+  const [weather, setWeather] = useState(stub);
 
-  // useEffect(() => {
-  //   fetch(`http://api.weatherapi.com/v1/current.json?key=${token}&q=${coordinates}&aqi=no`)
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     console.log('poop: ', data)
-  //     setWeather(() => data)
-  //   })
-  //   .catch(err => console.error("Error: ", err))
-  // }, []);
-  
+  useEffect(() => {
+
+  function getLocation() {
+    return navigator.geolocation.getCurrentPosition(success)
+  }
+
+  const success = (pos) => {
+    const { latitude, longitude } = pos.coords;
+    const url = `https://api.weather.gov/points/${latitude},${longitude}`
+
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      const { gridX, gridY } = data.properties
+
+      fetch(`https://api.weather.gov/gridpoints/BOU/${gridX},${gridY}/forecast`)
+      .then(res => res.json())
+      .then(data => {
+        setWeather(() => data.properties.periods)
+      })
+    })
+    .catch(err => console.log(err))
+  }
+  const error = (err) => console.warn(`ERROR(${err.code}): ${err.message}`)
+
+  getLocation(success, error, {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  });
+
+}, []);
+
+
   return (
     <div className="header">
-      <div className="logo">
+      {/* <div className="logo">
         <img src={ullrLogo} alt="Ullr Logo" />
         <p className="year">
           <span>2</span>  
@@ -44,7 +68,7 @@ export default function Header() {
         </div>
         <p className='updated-at'>Updated at:<span>{weather.location.localtime}</span></p>
       </div>
-      </div>
+      </div> */}
     </div>
   );
 };
