@@ -1,22 +1,16 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import Main from './components/Main'
-import Header from './components/Header'
-import { getForecast } from './utils'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Main from './components/Main';
+import Header from './components/Header';
+import HourlyForecast from './components/HourlyForecast';
+// import Loading from './components/Loading';
 
-function App() {
-  const [gridPoints, setGridPoints] = useState();
-  const [forecast, setForecast] = useState();
-  const [currentConditions, setCurrentConditions] = useState();
-  const [weatherAlerts, setWeatherAlerts] = useState();
+export default function App() {
+  const [gridPoints, setGridPoints] = useState('');
 
   useEffect(() => {
     getAPIPoints();
   }, [])
-
-  // useEffect(() => {
-  //   getForecast(setForecast, gridPoints)
-  // }, [gridPoints])
 
   const getAPIPoints = () => {
     const error = (err) => console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -39,16 +33,18 @@ function App() {
       maximumAge: 0
     });
   };
-  console.log('gridPoints: ', gridPoints);
 
   return (
     <>
       <div>
-        {/* <Header /> */}
+        <Header />
+        {
+          gridPoints  === ''
+          ? <p>Loading...</p>
+          : <HourlyForecast gridPoints={gridPoints} />
+        }
         <Main />
       </div>
     </>
   )
-}
-
-export default App;
+};

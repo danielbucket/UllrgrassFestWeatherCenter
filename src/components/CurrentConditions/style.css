@@ -1,0 +1,81 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  height: 24rem;
+
+  font-family: "Cormorant", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.logo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.logo p {
+  letter-spacing: 5rem;
+  color: var(--banana-candy-yellow);
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.current-weather {
+  border-radius: 4rem;
+  width: 28rem;
+  height: 20rem;
+  align-content: center;
+  box-shadow: 0ch 0ch 2ch 0ch rgb(177, 246, 255);
+  font-size: 3rem;
+  background-color: ghostwhite;
+  color: var(--lalala);
+}
+
+.current-weather div:first-child {
+  box-shadow: inset 0ch 0ch 2ch 0ch var(--lalala);
+  border-radius: 4rem;
+  height: 100%;
+  padding: 1.75rem;
+}
+
+.current-weather p {
+  text-align: center;
+  font-weight: 600;
+}
+
+.current-weather-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.current-weather-details p {
+  font-size: 2.75rem;
+}
+
+.current-weather-details img {
+  position: fixed;
+  right: 1.25rem;
+  height: 5rem;
+}
+
+.wind-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1.75rem;
+}
+
+.wind-details p span {
+  margin: 0 0.5rem;
+}
+
+.wind-details p:nth-child(2) {
+  margin-top: 0.5rem;
+}
