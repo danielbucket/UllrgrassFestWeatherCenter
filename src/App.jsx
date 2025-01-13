@@ -3,10 +3,12 @@ import './App.css';
 import Main from './components/Main';
 import Header from './components/Header';
 import HourlyForecast from './components/HourlyForecast';
-// import Loading from './components/Loading';
+import Loading from './components/Loading';
 
 export default function App() {
-  const [gridPoints, setGridPoints] = useState('');
+  const [locationData, setLocationData] = useState({
+    forecastOfficeId: 'BOU'
+  });
 
   useEffect(() => {
     getAPIPoints();
@@ -22,7 +24,13 @@ export default function App() {
       .then(res => res.json())
       .then(data => {
         const { gridX, gridY } = data.properties;
-        setGridPoints({ gridX, gridY });
+        setLocationData(prevData => {
+          return {
+            ...prevData,
+            gridX,
+            gridY
+          }
+        });
       })
       .catch(err => console.log(err))
     };
@@ -37,11 +45,11 @@ export default function App() {
   return (
     <>
       <div>
-        <Header />
+        <Header locationData={locationData} />
         {
-          gridPoints  === ''
-          ? <p>Loading...</p>
-          : <HourlyForecast gridPoints={gridPoints} />
+          locationData.gridX === undefined || locationData.gridY === undefined
+          ? <Loading />
+          : <HourlyForecast locationData={locationData} />
         }
         <Main />
       </div>

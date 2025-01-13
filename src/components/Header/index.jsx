@@ -1,9 +1,9 @@
 import './style.css';
 import ullrLogo from '../../assets/ullrlogohorizontalyellow.png';
 import CurrentConditions from '../CurrentConditions';
+import Loading from '../Loading';
 
-export default function Header() {
-
+export default function Header({ locationData }) {
   return (
     <div className="header">
       <div className="logo">
@@ -15,7 +15,11 @@ export default function Header() {
           <span>5</span>  
         </p>
       </div>
-      <CurrentConditions />
+      {
+        !locationData
+        ? <Loading />
+        : <CurrentConditions  locationData={locationData} />
+      }
     </div>
   )
 }

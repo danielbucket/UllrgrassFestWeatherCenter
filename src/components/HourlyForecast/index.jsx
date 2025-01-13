@@ -2,23 +2,19 @@ import { useState, useEffect } from 'react';
 import './style.css';
 import schedule from '../../data/schedule.json';
 
-export default function HourlyForecast({ gridPoints }) {
+export default function HourlyForecast({ locationData }) {
   const [forecast, setForecast] = useState();
-
+  
   useEffect(() => {
-    const { gridX, gridY } = gridPoints;
-    fetch(`https://api.weather.gov/gridpoints/BOU/${gridX},${gridY}/forecast`)
+    const { forecastOfficeId, gridX, gridY } = locationData;
+
+    fetch(`https://api.weather.gov/gridpoints/${forecastOfficeId}/${gridX},${gridY}/forecast`)
     .then(res => res.json())
     .then(data => {
-      console.log('data: ', data)
       setForecast(data.properties.periods)
     })
     .catch(err => console.log(err))
   }, [])
-
-  useEffect(() => {
-    
-  }, [forecast])
 
   return (
     <>
