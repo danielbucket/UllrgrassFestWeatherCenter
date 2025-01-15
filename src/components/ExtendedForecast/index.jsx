@@ -1,17 +1,11 @@
 import { useState, useEffect } from 'react';
+import { TVStyle } from '../../styled.components'
 import './style.css';
-import schedule from '../../data/schedule.json';
+import { formatTime } from '../../utils';
 
 export default function ExtendedForecast({ extendedForecast }) {
-
   const forecast = extendedForecast.map((hour, i) => {
     const { endTime, icon, startTime, temperature, shortForecast, windDirection, windSpeed } = hour;
-    
-    const formatTime = (time) => {
-      const localString = new Date(time).toLocaleTimeString();
-      const [hours, minutes, seconds, meridiem] = localString.split(/[:\s]/);
-      return `${hours}:${minutes} ${meridiem}`;
-    }
     const formattedTimeEnd = formatTime(endTime);
     const formattedTimeStart = formatTime(startTime);
     
@@ -30,20 +24,16 @@ export default function ExtendedForecast({ extendedForecast }) {
 
   return (
     <>
-      <div className="hourly-forecast-container">
-        <div className="inner-box-shadow">
-          <div className="forecast-subcontainer">
+      <TVStyle>
+        <div id="inner-tv">
+          <div className="forecast-container">
             <p>Extended Forecast</p>
             <div className="hourly-forecast">
-              {
-                !extendedForecast
-                ? <p>Loading...</p>
-                : forecast
-              }
+              {forecast}
             </div>
           </div>
         </div>
-      </div>
+      </TVStyle>
     </>
   )
 }

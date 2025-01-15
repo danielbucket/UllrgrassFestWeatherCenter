@@ -62,8 +62,8 @@ export default function App() {
             : (
               <>
                 <CurrentConditions currentConditions={ weatherData.currentConditions } />
-                <ExtendedForecast extendedForecast={ weatherData.extendedForecast }/>
                 <GeneralForecast generalForecast={ weatherData.generalForecast } />
+                <ExtendedForecast extendedForecast={ weatherData.extendedForecast }/>
               </>
             )
           }

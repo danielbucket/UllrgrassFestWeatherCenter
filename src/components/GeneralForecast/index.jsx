@@ -1,37 +1,42 @@
 import { useState, useEffect } from 'react';
+import { TVStyle } from '../../styled.components'
 import './style.css';
+import { formatTime } from '../../utils';
 import schedule from '../../data/schedule.json';
 
 export default function GeneralForecast({ generalForecast }) {
   
+  
+  console.log(generalForecast)
+  const forecast = generalForecast.map((hour, i) => {
+    const { detailedForecast, icon, name, startTime, temperature, windDirection, windSpeed } = hour;
+
+    return (
+      <div key={i} className="general-forecast-card">
+        <div className="period-indicator">
+          <img src={icon} />
+          <p>{name}</p>
+          <p>{temperature}°F</p>
+        </div>
+        <p>{detailedForecast}</p>
+        <p>{windSpeed} {windDirection}</p>
+      </div>
+    )
+  })
 
 
   return (
     <>
-      <div className="hourly-forecast-container">
-        <div className="inner-box-shadow">
-
-          <div className="forecast-subcontainer">
-            <p>Scheduled & Weather</p>
-            <div className="hourly-forecast">
-              {
-                !generalForecast
-                ? <p>Loading...</p>
-                : generalForecast.map((hour, i) => {
-                  return (
-                    <div key={i} className="hourly-forecast-card">
-                      <p>{hour.name}</p>
-                      <p>{hour.temperature}</p>
-                      <p>{hour.shortForecast}</p>
-                    </div>
-                  )
-                })
-              }
+      <TVStyle>
+        <div id="inner-tv">
+          <div className="forecast-container">
+            <p>General Forecast</p>
+            <div className="general-forecast-list">
+              { forecast }
             </div>
           </div>
-          
         </div>
-      </div>
+      </TVStyle>
     </>
   )
 }

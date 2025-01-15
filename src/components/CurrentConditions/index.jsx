@@ -1,5 +1,6 @@
 import './style.css';
 import { useState, useEffect } from 'react';
+import { TVStyle } from '../../styled.components'
 import Loading from '../Loading';
 
 export default function CurrentConditions({ currentConditions }) {
@@ -22,35 +23,24 @@ export default function CurrentConditions({ currentConditions }) {
     icon: icon
   });
 
-
-  console.log(weather.tempF);
-
   return (
     <>
-      <div className="current-weather-container">
-        {
-          !currentConditions
-          ? <Loading />
-          : (
-            <div className="current-weather-wrapper outer-box-shadow">
-              <div className="inner-box-shadow">
-                <div className="current-weather-content">
-                  <div className="current-temp">
-                    <p>{weather.tempF}°F</p>
-                    <img src={weather.icon} />
-                  </div>
-                    <p className="condition-text">{weather.description}</p>
-                  <div className='wind-details'>
-                    <p>Wind:<span>{weather.wind.speed}</span>mph</p>
-                    <p>Windchill:<span>{weather.wind.chill}</span>°F</p>
-                  </div>
-                  <p className='updated-at'>Updated at:<span>{weather.updatedAt}</span></p>
-                </div>
-              </div>
+      <TVStyle>
+        <div id="inner-tv">
+          <div className="current-conditions-container">
+            <div className="current-temp">
+              <p>{weather.tempF}°F</p>
+              <img src={weather.icon} />
             </div>
-          )
-        }
-      </div>
+              <p className="condition-text">{weather.description}</p>
+            <div className='wind-details'>
+              <p>Wind:<span>{weather.wind.speed}</span>mph</p>
+              <p>Windchill:<span>{weather.wind.chill}</span>°F</p>
+            </div>
+            <p className='updated-at'>Updated at:<span>{weather.updatedAt}</span></p>
+          </div>
+        </div>
+      </TVStyle>
     </>
   );
 };

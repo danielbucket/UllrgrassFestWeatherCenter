@@ -3,14 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .page-content {
   display: flex;
   flex-direction: column;
-  width: 100vw;
   align-items: center;
+  width: 100%;
   padding-top: 1.5rem;
   
   overflow-y: scroll;
