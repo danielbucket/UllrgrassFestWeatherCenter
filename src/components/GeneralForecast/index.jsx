@@ -2,19 +2,9 @@ import { useState, useEffect } from 'react';
 import './style.css';
 import schedule from '../../data/schedule.json';
 
-export default function ScheduleAndForecast({ locationData }) {
-  const [forecast, setForecast] = useState();
+export default function GeneralForecast({ generalForecast }) {
   
-  useEffect(() => {
-    const { forecastOfficeId, gridX, gridY } = locationData;
 
-    fetch(`https://api.weather.gov/gridpoints/${forecastOfficeId}/${gridX},${gridY}/forecast`)
-    .then(res => res.json())
-    .then(data => {
-      setForecast(data.properties.periods)
-    })
-    .catch(err => console.log(err))
-  }, [])
 
   return (
     <>
@@ -25,9 +15,9 @@ export default function ScheduleAndForecast({ locationData }) {
             <p>Scheduled & Weather</p>
             <div className="hourly-forecast">
               {
-                forecast === undefined
+                !generalForecast
                 ? <p>Loading...</p>
-                : forecast.map((hour, i) => {
+                : generalForecast.map((hour, i) => {
                   return (
                     <div key={i} className="hourly-forecast-card">
                       <p>{hour.name}</p>

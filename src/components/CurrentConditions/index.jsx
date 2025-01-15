@@ -2,53 +2,38 @@ import './style.css';
 import { useState, useEffect } from 'react';
 import Loading from '../Loading';
 
-export default function CurrentConditions({ locationData }) {
-  const [weather, setWeather] = useState();
-  const { forecastOfficeId, gridX, gridY } = locationData
-  const url = `https://api.weather.gov/gridpoints/${forecastOfficeId}/${gridX},${gridY}/stations?limit=500`
+export default function CurrentConditions({ currentConditions }) {
+  const { temperature, windChill, windSpeed, timestamp, textDescription, shortForecast, icon, windDirection } = currentConditions;
+  const formatTime = (time) => {
+    const localString = new Date(time).toLocaleTimeString();
+    const [hours, minutes, seconds, meridiem] = localString.split(/[:\s]/);
+    return `${hours}:${minutes} ${meridiem}`;
+  }
 
-  useEffect(() => {
-    if(!locationData.gridX || !locationData.gridY) return;
-    
-    fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      if (!data.features) return;
-      const { stationIdentifier } = data.features[0].properties;
+  const weather = Object.assign({}, {
+    tempF: ((temperature.value * 9/5) + 32).toFixed(0),
+    wind: {
+      speed: Math.round(windSpeed.value),
+      chill: Math.round(windChill.value),
+      direction: windDirection.value
+    },
+    updatedAt: formatTime(timestamp),
+    description: textDescription,
+    icon: icon
+  });
 
-      fetch(`https://api.weather.gov/stations/${stationIdentifier}/observations/latest`)
-      .then(res => res.json())
-      .then(data =>  {
-        const weatherData = Object.assign({},
-          {
-            tempF: ((data.properties.temperature.value * 9/5) + 32),
-            icon: data.properties.icon,
-            description: data.properties.textDescription,
-            wind: {
-              speed: Math.round(data.properties.windSpeed.value),
-              chill: Math.round((data.properties.windChill.value * 9/5) + 32)
-            },
-            updatedAt: data.properties.timestamp.slice(0, 10)
-          }
-        )
-        setWeather(weatherData)
-      })
-      .catch((err) => console.log(err))
-    })
-    .catch(err => console.log(err))
 
-  }, [locationData]);
+  console.log(weather.tempF);
 
   return (
     <>
       <div className="current-weather-container">
         {
-          !weather
+          !currentConditions
           ? <Loading />
           : (
             <div className="current-weather-wrapper outer-box-shadow">
               <div className="inner-box-shadow">
-
                 <div className="current-weather-content">
                   <div className="current-temp">
                     <p>{weather.tempF}°F</p>
@@ -61,7 +46,6 @@ export default function CurrentConditions({ locationData }) {
                   </div>
                   <p className='updated-at'>Updated at:<span>{weather.updatedAt}</span></p>
                 </div>
-                
               </div>
             </div>
           )
