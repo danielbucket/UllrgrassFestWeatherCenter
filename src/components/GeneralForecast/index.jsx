@@ -5,9 +5,6 @@ import { formatTime } from '../../utils';
 import schedule from '../../data/schedule.json';
 
 export default function GeneralForecast({ generalForecast }) {
-  
-  
-  console.log(generalForecast)
   const forecast = generalForecast.map((hour, i) => {
     const { detailedForecast, icon, name, startTime, temperature, windDirection, windSpeed } = hour;
 
@@ -24,12 +21,11 @@ export default function GeneralForecast({ generalForecast }) {
     )
   })
 
-
   return (
     <>
       <TVStyle>
         <div id="inner-tv">
-          <div className="forecast-container">
+          <div className="general-forecast-container">
             <p>General Forecast</p>
             <div className="general-forecast-list">
               { forecast }

@@ -10,8 +10,8 @@ export default function ExtendedForecast({ extendedForecast }) {
     const formattedTimeStart = formatTime(startTime);
     
     return (
-      <div key={i} className="hourly-forecast-card">
-        <div className="period">
+      <div key={i} className="extended-forecast-card">
+        <div className="extended-period-indicator">
           <p>{formattedTimeStart} - {formattedTimeEnd}</p>
           <img src={icon} />
         </div>
@@ -26,9 +26,9 @@ export default function ExtendedForecast({ extendedForecast }) {
     <>
       <TVStyle>
         <div id="inner-tv">
-          <div className="forecast-container">
+          <div className="extended-forecast-container">
             <p>Extended Forecast</p>
-            <div className="hourly-forecast">
+            <div className="extended-forecast-list">
               {forecast}
             </div>
           </div>
