@@ -16,7 +16,7 @@ export const TVStyle = styled.div`
   scroll-snap-stop: always;
 
   border-radius: 4rem;
-  box-shadow: 0ch 0ch 5ch 0ch rgb(177, 246, 255);
+  box-shadow: 0ch 0ch 5ch 0ch var(--iced-blue);
   background-color: ghostwhite;
 
   && #inner-tv {

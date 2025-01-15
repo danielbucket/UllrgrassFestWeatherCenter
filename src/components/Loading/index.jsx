@@ -1,12 +1,10 @@
 import './style.css';
+import { TypeWriterEffect } from '../TypeWriterEffect';
 
 export default function Loading() {
   return (
     <div className="loading">
-      <div className="loading-spinner">
-        <div className="spinner"></div>
-        <p>Loading...</p>
-      </div>
+      <TypeWriterEffect text="Loading..." speed={400} />
     </div>
   )
 }
