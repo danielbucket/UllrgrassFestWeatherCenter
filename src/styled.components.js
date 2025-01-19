@@ -7,9 +7,6 @@ export const TVStyle = styled.div`
   width: 90%;
   color: var(--lalala);
   margin: 3rem;
-
-  font-family: "Julius Sans One", serif;
-  font-style: normal;
   
   scroll-snap-align: start;
   scroll-margin-top: 4rem;
