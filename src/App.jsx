@@ -19,7 +19,7 @@ export default function App() {
     const success = (pos) => {
       const { latitude, longitude } = pos.coords;
       const url = `https://api.weather.gov/points/${latitude},${longitude}`;
-    
+      
       fetch(url)
       .then(res => res.json())
       .then(async data => {

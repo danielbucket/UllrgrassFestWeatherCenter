@@ -3,30 +3,44 @@ import { useState, useEffect } from 'react';
 import { TVStyle } from '../../styled.components'
 import Loading from '../Loading';
 
-export default function CurrentConditions({ currentConditions }) {
-  const { temperature, windChill, windSpeed, timestamp, textDescription, shortForecast, icon, windDirection } = currentConditions;
-  const formatTime = (time) => {
-    const localString = new Date(time).toLocaleTimeString();
-    const [hours, minutes, seconds, meridiem] = localString.split(/[:\s]/);
-    return `${hours}:${minutes} ${meridiem}`;
-  }
+export default function CurrentConditions({ currentConditions, urlString }) {
+  const [curCons, setCurCons] = useState();
 
-  const weather = Object.assign({}, {
-    tempF: ((temperature.value * 9/5) + 32).toFixed(0),
-    wind: {
-      speed: Math.round(windSpeed.value),
-      chill: Math.round(windChill.value),
-      direction: windDirection.value
-    },
-    updatedAt: formatTime(timestamp),
-    description: textDescription,
-    icon: icon
-  });
+  console.log('urlString: ', urlString);
+
+  useEffect(() => {
+    if (urlString === 'loading') return;
+    fetch(urlString)
+      .then(res => res.json())
+      .then(data => setCurCons(data.properties))
+      .catch(err => console.error(err));
+  }, [urlString])
+  
+  
+
+  // const { temperature, windChill, windSpeed, timestamp, textDescription, shortForecast, icon, windDirection } = currentConditions;
+  // const formatTime = (time) => {
+  //   const localString = new Date(time).toLocaleTimeString();
+  //   const [hours, minutes, seconds, meridiem] = localString.split(/[:\s]/);
+  //   return `${hours}:${minutes} ${meridiem}`;
+  // }
+
+  // const weather = Object.assign({}, {
+  //   tempF: ((temperature.value * 9/5) + 32).toFixed(0),
+  //   wind: {
+  //     speed: Math.round(windSpeed.value),
+  //     chill: Math.round(windChill.value),
+  //     direction: windDirection.value
+  //   },
+  //   updatedAt: formatTime(timestamp),
+  //   description: textDescription,
+  //   icon: icon
+  // });
 
   return (
     <>
       <TVStyle>
-        <div id="inner-tv">
+        {/* <div id="inner-tv">
           <div className="current-conditions-container">
             <div className="current-temp">
               <p>{weather.tempF}°F</p>
@@ -39,7 +53,7 @@ export default function CurrentConditions({ currentConditions }) {
             </div>
             <p className='updated-at'>Updated at:<span>{weather.updatedAt}</span></p>
           </div>
-        </div>
+        </div> */}
       </TVStyle>
     </>
   );
