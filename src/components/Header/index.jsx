@@ -22,12 +22,9 @@ export default function Header() {
               >Click to go to the official Ullrgrass.com website.</p>
           : null
         }
-        <img
-          src={ullrLogo}
-          alt="Ullr Logo"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-          />
+        <img src={ullrLogo}
+              alt="Ullr Logo"
+              onMouseEnter={() => setIsHovering(true)} />
       </div>
       <p className="year">
         {year.map((num, i) => <span key={i}>{num}</span>)}
