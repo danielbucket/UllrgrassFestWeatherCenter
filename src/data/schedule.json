@@ -2,7 +2,7 @@
   "year": "2025",
   "outline": {
     "friday": {
-      "date": "Friday, 31st",
+      "date": "2025-01-31",
       "events": [
         {
           "start_time": "3:45 PM",
@@ -57,7 +57,7 @@
       ]
     },
     "saturday": {
-      "date": "Saturday, 1st",
+      "date": "2025-02-01",
       "events": [
         {
           "start_time": "11:00 AM",
@@ -138,7 +138,7 @@
       ]
     },
     "sunday": {
-      "date": "Sunday, 2nd",
+      "date": "2025-02-02",
       "events": [
         {
           "start_time": "11:00 AM",

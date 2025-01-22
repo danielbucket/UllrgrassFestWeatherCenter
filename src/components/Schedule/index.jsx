@@ -10,7 +10,7 @@ export default function Schedule() {
   useEffect(() => {
     setTimeout(() => {
       setSchedule(scheduleData);
-    }, 2000);
+    }, 1000);
   },[])
 
 
