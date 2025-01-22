@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import Header from './components/Header';
-import ExtendedForecast from './components/ExtendedForecast';
-import Loading from './components/Loading';
-import CurrentConditions from './components/CurrentConditions';
-import GeneralForecast from './components/GeneralForecast';
+import Header from '../Header';
+import ExtendedForecast from '../ExtendedForecast';
+import Loading from '../Loading';
+import CurrentConditions from '../CurrentConditions';
+import GeneralForecast from '../GeneralForecast';
 
 export default function App() {
   const [weatherData, setWeatherData] = useState();

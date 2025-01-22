@@ -1,8 +1,8 @@
-import { useState, useEffect, Suspense } from 'react';
-import './App.css';
-import Header from './components/Header';
-import CurrentConditions  from './components/CurrentConditions/index.2';
-import Schedule from './components/Schedule';
+import { useState, useEffect } from 'react';
+import './style.css';
+import Header from '../Header';
+import CurrentConditions  from '../CurrentConditions/index.2';
+import Schedule from '../Schedule';
 
 export default function App() {
   const [urlStrings, setUrlStrings] = useState({});
@@ -62,14 +62,16 @@ export default function App() {
     };
   
   return (
-    <div className="App">
+    <div className="app-container">
       <Header />
-      <CurrentConditions urlString={
-          !urlStrings.currentConditionsUrl
-          ? false
-          : urlStrings.currentConditionsUrl
-        } />
+      <div className="page-content">
+        <CurrentConditions urlString={
+            !urlStrings.currentConditionsUrl
+            ? false
+            : urlStrings.currentConditionsUrl
+          } />
         <Schedule />
+      </div>
     </div>
   )
 }
