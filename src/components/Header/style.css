@@ -10,17 +10,33 @@
   margin-top: 1rem;
 }
 
-.header img {
-  width: 98%;
+.redirect-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  height: 11rem;
+  border-radius: 8%;
+  font-size: 3rem;
+  
+  transition: all .75s;
 }
 
-.header p {
-  color: var(--banana-candy-yellow);
-  font-size: 4rem;
-  font-weight: 600;
+.redirect-overlay:hover {
+  border: 0.5rem solid var(--iced-blue);
+  background-color: rgb(216 187 92 / 70%);
+  cursor: pointer;
+}
+
+.header img {
+  width: 98%;
 }
 
 .year {
   display: flex;
   gap: 2.25rem;
+  color: var(--banana-candy-yellow);
+  font-size: 4rem;
+  font-weight: 600;
 }
