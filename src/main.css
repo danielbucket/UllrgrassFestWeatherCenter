@@ -1,3 +1,19 @@
+@font-face {
+	font-family: 'Comorant_Italic';
+	src: url('./fonts/Cormorant/Cormorant-Italic-VariableFont_wght.ttf') format('truetype');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Julius_SansOne';
+	src: url('./fonts/Julius_Sans_One/JuliusSansOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Roboto_Regular';
+	src: url('./fonts/Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
 :root {
 	--banana-candy-yellow: rgb(216 187 92);
 	--lalala: #1a1a1a;

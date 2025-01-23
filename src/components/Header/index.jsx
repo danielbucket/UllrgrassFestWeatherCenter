@@ -15,7 +15,7 @@ export default function Header() {
   };
   
   return (
-    <div className="header">
+    <div className="header-container">
       <div className="logo-wrapper">
         <div className={showModal ? 'show-modal' : 'hide-modal'}>
           <div className="close-modal-btn" onClick={() => handleModal()}>X</div>

@@ -25,12 +25,10 @@ export default function ExtendedForecast({ extendedForecast }) {
   return (
     <>
       <TVStyle>
-        <div id="inner-tv">
-          <div className="extended-forecast-container">
-            <p>Extended Forecast</p>
-            <div className="extended-forecast-list">
-              {forecast}
-            </div>
+        <div className="extended-forecast-container">
+          <p>Extended Forecast</p>
+          <div className="extended-forecast-list">
+            {forecast}
           </div>
         </div>
       </TVStyle>
