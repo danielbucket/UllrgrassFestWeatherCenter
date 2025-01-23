@@ -66,9 +66,9 @@ export default function App() {
       <Header />
       <div className="page-content">
         <CurrentConditions urlString={
-            !urlStrings.currentConditionsUrl
-            ? false
-            : urlStrings.currentConditionsUrl
+            urlStrings.currentConditionsUrl
+            ? urlStrings.currentConditionsUrl
+            : false
           } />
         <Schedule />
       </div>

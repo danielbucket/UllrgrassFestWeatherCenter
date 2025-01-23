@@ -9,6 +9,7 @@
   margin-top: 1rem;
   margin-bottom: 5rem;
 }
+
 .show-modal {
   display: flex;
   justify-content: center;
@@ -22,12 +23,19 @@
   z-index: 1000;
 }
 
-.header img {
-  width: 98%;
+.hide-modal {
+  display: none;
 }
 
-.header p {
+.close-modal-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: var(--black);
   color: var(--banana-candy-yellow);
+  padding: 0.5rem;
+  border-radius: 50%;
+  font-size: 2.5rem;
   cursor: pointer;
 }
 
@@ -38,6 +46,10 @@
   border-radius: 0.5rem;
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+.banner-img {
+  width: 98%;
 }
 
 .year {
