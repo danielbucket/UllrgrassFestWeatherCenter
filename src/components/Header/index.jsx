@@ -3,32 +3,30 @@ import './style.css';
 import ullrLogo from '../../assets/ullrlogohorizontalyellow.png';
 
 export default function Header() {
-  const [isHovering, setIsHovering] = useState(false);
+  const [showModal, setShowModal] = useState(true);
   const year = new Date().getFullYear().toString().split('');
 
-  const handleClick = () => {
+  const handleRedirect = () => {
     window.location.href = 'https://www.ullrgrass.com/';
+  };
+
+  const handleModal = () => {
+    setShowModal(false);
   };
   
   return (
     <div className="header">
       <div className="logo-wrapper">
-        {
-          isHovering
-          ? <p className="redirect-overlay"
-                onClick={() => handleClick()}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-              >Click to go to the official Ullrgrass.com website.</p>
-          : null
-        }
-        <img src={ullrLogo}
-              alt="Ullr Logo"
-              onMouseEnter={() => setIsHovering(true)} />
+        <div className={showModal ? 'show-modal' : 'hide-modal'}>
+          <div className="close-modal-btn" onClick={() => handleModal()}>X</div>
+          <button className="redirect-btn" onClick={() => handleRedirect()}
+          >Click to go to the official Ullrgrass.com website</button>
+        </div>
+        <img className="banner-img" src={ullrLogo} alt="Ullr Logo" />
       </div>
-      <p className="year">
+      <div className="year">
         {year.map((num, i) => <span key={i}>{num}</span>)}
-      </p>
+      </div>
     </div>
-  )
+  );
 };

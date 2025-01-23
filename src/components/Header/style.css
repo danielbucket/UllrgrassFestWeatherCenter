@@ -8,28 +8,46 @@
   font-optical-sizing: auto;
   font-style: normal;
   margin-top: 1rem;
+  margin-bottom: 5rem;
 }
-
-.redirect-overlay {
+.show-modal {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  z-index: 2;
-  height: 11rem;
-  border-radius: 8%;
-  font-size: 3rem;
-  
-  transition: all .75s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 18rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+
 }
 
-.redirect-overlay:hover {
-  border: 0.5rem solid var(--iced-blue);
-  background-color: rgb(216 187 92 / 70%);
+.hide-modal {
+  display: none;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2.5rem;
+  color: var(--banana-candy-yellow);
   cursor: pointer;
 }
 
-.header img {
+.redirect-btn {
+  background-color: var(--banana-candy-yellow);
+  color: var(--black);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.banner-img {
   width: 98%;
 }
 
