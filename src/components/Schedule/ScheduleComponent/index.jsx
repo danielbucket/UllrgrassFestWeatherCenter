@@ -9,16 +9,16 @@ import './style.css';
     const sortSchedule = Object.keys(outline).map((day, i) => {
       const { date, events } = outline[day];
       const fullDate = new Date(date);
-
+      
       const dayElement = (
         <>
           <div className="daily-content">
             <h2>{date}</h2>
-            <div className="day-events">
+            <div className="day-events-list">
               {
                 events.map((event, i) => {
                   return (
-                    <div className="event" key={i}>
+                    <div className="event-card" key={i}>
                       <h3>{event.start_time} - {event.end_time}</h3>
                       <p>{event.artist}</p>
                       <p>{event.stage}</p>
@@ -39,24 +39,19 @@ import './style.css';
     }, []);
 
     return (
-      <div id="inner-tv">
-        <div className="schedule-container">
-          <h1>{year}</h1>
-          <div className="schedule-content" id="schedule">
-            {
-              currentDay !== undefined
-              ? sortedSchedule.map((day, i) => {
-                return (
-                  <>
-                    <div className={currentDay === i ? 'is-active' : 'is-inactive'}>
-                      {day.dayElement}
-                    </div>
-                  </>
-                );
-              }) : null
-            }
-          </div>
-        </div>
+      <div className="schedule-container">
+        {
+          currentDay !== undefined
+          ? sortedSchedule.map((day, i) => {
+            return (
+              <>
+                <div className={`day-card ${currentDay === i ? 'is-active' : 'is-inactive'}`}>
+                  {day.dayElement}
+                </div>
+              </>
+            );
+          }) : null
+        }
       </div>
     );
   };

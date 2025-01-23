@@ -1,7 +1,8 @@
+import './style.css';
+
 export default function Conditions({ conditions }) {
 
   return (
-    <div id="inner-tv">
     <div className="current-conditions-container">
       <div className="current-temp">
         <p>{conditions.tempF}°F</p>
@@ -14,6 +15,5 @@ export default function Conditions({ conditions }) {
       </div>
       <p className='updated-at'>Updated at:<span>{conditions.updatedAt}</span></p>
     </div>
-  </div>
   )
 }

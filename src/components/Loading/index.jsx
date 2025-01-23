@@ -1,5 +1,5 @@
 import './style.css';
-import { TypeWriterEffect } from '../TypeWriterEffect';
+import TypeWriterEffect from '../TypeWriterEffect';
 
 export default function Loading() {
   return (

@@ -24,12 +24,10 @@ export default function GeneralForecast({ generalForecast }) {
   return (
     <>
       <TVStyle>
-        <div id="inner-tv">
-          <div className="general-forecast-container">
-            <p>General Forecast</p>
-            <div className="general-forecast-list">
-              { forecast }
-            </div>
+        <div className="general-forecast-container">
+          <p>General Forecast</p>
+          <div className="general-forecast-list">
+            { forecast }
           </div>
         </div>
       </TVStyle>
