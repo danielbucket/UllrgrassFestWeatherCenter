@@ -41,7 +41,7 @@ import './style.css';
     return (
       <>
         <div className="schedule-container">
-          {/* {
+          {
             currentDay !== undefined
             ? sortedSchedule.map((day, i) => {
               return (
@@ -52,7 +52,7 @@ import './style.css';
                 </>
               );
             }) : null
-          } */}
+          }
         </div>
       </>
     );
