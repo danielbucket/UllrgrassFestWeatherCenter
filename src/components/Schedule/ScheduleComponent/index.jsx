@@ -39,19 +39,21 @@ import './style.css';
     }, []);
 
     return (
-      <div className="schedule-container">
-        {
-          currentDay !== undefined
-          ? sortedSchedule.map((day, i) => {
-            return (
-              <>
-                <div className={`day-card ${currentDay === i ? 'is-active' : 'is-inactive'}`}>
-                  {day.dayElement}
-                </div>
-              </>
-            );
-          }) : null
-        }
-      </div>
+      <>
+        <div className="schedule-container">
+          {/* {
+            currentDay !== undefined
+            ? sortedSchedule.map((day, i) => {
+              return (
+                <>
+                  <div className={`day-card ${currentDay === i ? 'is-active' : 'is-inactive'}`} key={i}>
+                    {day.dayElement}
+                  </div>
+                </>
+              );
+            }) : null
+          } */}
+        </div>
+      </>
     );
   };

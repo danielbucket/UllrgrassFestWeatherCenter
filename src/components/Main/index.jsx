@@ -6,6 +6,7 @@ import { MainContent } from './styled.js';
 export default function Main() {
   const [urlStrings, setUrlStrings] = useState({});
   const [urlResources, setUrlResources] = useState({});
+  const [coordinates, setCoordinates] = useState({});
 
   useEffect(() => {
     getWeatherUrls();
@@ -50,10 +51,16 @@ export default function Main() {
           
           setUrlStrings(ulrsObj);
           setUrlResources(urlResourcesObj);
+          setCoordinates({latitude, longitude});
         });
       };
 
-      navigator.geolocation.getCurrentPosition(success, error, {
+      navigator.geolocation.getCurrentPosition((pos)=> {
+        const { latitude, longitude } = pos.coords;
+        if (latitude === coordinates.latitude && longitude === coordinates.longitude) return;
+
+        success(pos);
+      }, error, {
         enableHighAccuracy: true,
         timeout: 5000,
         maximumAge: 0
